@@ -1,0 +1,5 @@
+//Q1-Reverse an array
+
+//2 - Max and min value of an array
+
+//3 - Find duplicate items in an array
