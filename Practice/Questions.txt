@@ -11,3 +11,7 @@ Note: a) If the length of the string is odd there will be two middle characters.
     b) If the length of the string is even there will be one middle character.
 
 //6 - Write a Java method to count all the words in a string.
+
+//7 - Write a Java program to create a class called Animal with a method called makeSound(). Create a subclass called Cat that overrides the makeSound() method to bark.
+
+//8 - Write a Java program to create a class known as "BankAccount" with methods called deposit() and withdraw(). Create a subclass called SavingsAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred.
