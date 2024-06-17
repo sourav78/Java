@@ -11,6 +11,7 @@ public class CustomException {
 
             if (age > 100){
                 throw new MyException("Age should not be grater than 100");
+//                throw new ArithmeticException("Age should not be grater than 100");
             }
         } catch (MyException e) {
             System.out.println(e);
