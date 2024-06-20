@@ -15,3 +15,9 @@ Note: a) If the length of the string is odd there will be two middle characters.
 //7 - Write a Java program to create a class called Animal with a method called makeSound(). Create a subclass called Cat that overrides the makeSound() method to bark.
 
 //8 - Write a Java program to create a class known as "BankAccount" with methods called deposit() and withdraw(). Create a subclass called SavingsAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred.
+
+//9 - Write a Java program to iterate through all elements in an array list.
+
+//10 - Write a Java program to insert an element into the array list at the first position.
+
+//11 - Write a Java program to search for an element in an array list
