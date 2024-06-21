@@ -21,3 +21,7 @@ Note: a) If the length of the string is odd there will be two middle characters.
 //10 - Write a Java program to insert an element into the array list at the first position.
 
 //11 - Write a Java program to search for an element in an array list
+
+//12 - Write a Java program to compare two array lists.
+
+//13 - Write a Java program that swaps two elements in an array list.
