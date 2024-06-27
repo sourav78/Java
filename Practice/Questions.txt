@@ -25,3 +25,5 @@ Note: a) If the length of the string is odd there will be two middle characters.
 //12 - Write a Java program to compare two array lists.
 
 //13 - Write a Java program that swaps two elements in an array list.
+
+//14 - Find a pair with the given sum in an array -> Hashing
