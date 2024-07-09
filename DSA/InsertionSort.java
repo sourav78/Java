@@ -14,10 +14,24 @@ public class InsertionSort {
         }
     }
 
-    public static void main(String[] args) {
-        int[] arr = {2, 9, 1, 8, 6, 3};
+    public static void recursiveInsertionSort(int[] arr, int i, int n) {
+        if (i == n) return;
+        int j = i;
 
-        insertionSort(arr);
+        while (j > 0 && arr[j - 1] > arr[j]) {
+            int temp = arr[j];
+            arr[j] = arr[j - 1];
+            arr[j - 1] = temp;
+        }
+
+        recursiveInsertionSort(arr, i+1, n);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = { 35, 76, 13, 26, 37, 90, 65 };
+
+        // insertionSort(arr);
+        recursiveInsertionSort(arr, 0, 7);
 
         System.out.println(Arrays.toString(arr));
     }
