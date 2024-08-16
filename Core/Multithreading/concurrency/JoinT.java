@@ -19,6 +19,7 @@ public class JoinT {
         Thread t1 = new Thread(new JoinDemo(), "joinThread");
         t1.start();
         t1.join();
+//        t1.join(1000);
 
         for (int i = 0; i < 5; i++) {
             System.out.println(Thread.currentThread().getName()+" - "+i);
