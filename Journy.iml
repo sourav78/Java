@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Core" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Practice" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Spark2.0" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Projects/Mini Projects/Linking" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Learn Tools and Libs/jdbcPG/out" />
     </content>
     <orderEntry type="inheritedJdk" />
