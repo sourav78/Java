@@ -11,7 +11,9 @@
     <bean id="diesel" class="org.example.DeiselEngine"></bean>
 
     <bean id="car" class="org.example.Car">
-        <property name="engine" ref="petrol"></property>
+<!--        Dependency Injection using setter method-->
+<!--        <property name="engine" ref="petrol"></property>-->
+        <constructor-arg name="engine" ref="diesel"></constructor-arg>
     </bean>
 
 </beans>
