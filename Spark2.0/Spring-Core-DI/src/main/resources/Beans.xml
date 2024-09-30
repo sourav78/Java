@@ -6,14 +6,22 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-    <bean id="petrol" class="org.example.PetrolEngine"></bean>
+    <bean id="engine" class="org.example.PetrolEngine"></bean>
 
-    <bean id="diesel" class="org.example.DeiselEngine"></bean>
+    <bean id="diesel" class="org.example.DeiselEngine" autowire-candidate="false"></bean>
 
-    <bean id="car" class="org.example.Car">
+    <bean id="car" class="org.example.Car" autowire="byName">
 <!--        Dependency Injection using setter method-->
 <!--        <property name="engine" ref="petrol"></property>-->
+
+<!--        Dependency Injection using constructor-->
         <constructor-arg name="engine" ref="diesel"></constructor-arg>
     </bean>
+<!--    <bean id="car" class="org.example.Car" autowire="byType"></bean>-->
+<!--    <bean id="car" class="org.example.Car" autowire="constructor"></bean>-->
+
+<!--    It give nullPointerException-->
+<!--    <bean id="car" class="org.example.Car" autowire="no"></bean>-->
+
 
 </beans>

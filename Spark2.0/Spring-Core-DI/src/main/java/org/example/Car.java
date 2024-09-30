@@ -4,11 +4,15 @@ public class Car {
 
     Engine engine;
 
+    public Car(){
+        System.out.println("Car constructor");
+    }
     public Car(Engine engine) {
+        System.out.println("Car parametere constructor");
         this.engine = engine;
     }
 
-    //Dependecu injection USING Setter method
+    //Dependency injection USING Setter method
     public void setEngine(Engine engine) {
         this.engine = engine;
     }

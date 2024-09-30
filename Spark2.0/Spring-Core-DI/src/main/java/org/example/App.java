@@ -17,13 +17,13 @@ public class App
 //        car.drive();
 
         //IOC -> Using Application
-//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("Beans.xml");
-//        Car car = applicationContext.getBean(Car.class);
-//        car.drive();
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("Beans.xml");
+        Car car = applicationContext.getBean(Car.class);
+        car.drive();
 
         //IoC -> Bean Factory -> Deprecated & removed
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext("Beans.xml");
-        Car car = (Car) beanFactory.getBean(Car.class);
-        car.drive();
+//        BeanFactory beanFactory = new ClassPathXmlApplicationContext("Beans.xml");
+//        Car car = (Car) beanFactory.getBean(Car.class);
+//        car.drive();
     }
 }
