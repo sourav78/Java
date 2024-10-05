@@ -31,4 +31,23 @@ public class ProductService {
     public void addNewProduct(Product product){
         allProducts.add(product);
     }
+
+    public void updateProduct(Product product) {
+        for (int i = 0; i < allProducts.size(); i++){
+            if(allProducts.get(i).getId() == product.getId()){
+                allProducts.set(i, product);
+                return;
+            }
+        }
+    }
+
+    public String deleteProduct(int id) {
+        for (int i = 0; i < allProducts.size(); i++){
+            if(allProducts.get(i).getId() == id){
+                allProducts.remove(i);
+                return "Product Deleted successfully";
+            }
+        }
+        return "Product not found";
+    }
 }
