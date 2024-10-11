@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-//    @ExceptionHandler(Exception.class)
-//    public ResponseEntity<ErrorHandler> handleGeneralException(ErrorHandler ex){
-//        return new ResponseEntity<>(
-//                new ErrorHandler(false, "Interal Server Error"),
-//                HttpStatus.INTERNAL_SERVER_ERROR
-//        );
-//    }
+    @ExceptionHandler(ErrorHandler.class)
+    public ResponseEntity<ErrorHandler> handleGeneralException(ErrorHandler ex){
+        return new ResponseEntity<>(
+                new ErrorHandler("Internal server error", HttpStatus.INTERNAL_SERVER_ERROR),
+                HttpStatus.INTERNAL_SERVER_ERROR
+        );
+    }
 }

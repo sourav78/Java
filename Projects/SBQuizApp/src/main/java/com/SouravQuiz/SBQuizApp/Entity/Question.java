@@ -17,6 +17,9 @@ public class Question {
     private String ans;
     private String subject;
 
+    public Question() {
+    }
+
     public Question(String question, String opt1, String opt2, String opt3, String opt4, String ans, String subject) {
         this.question = question;
         this.opt1 = opt1;
