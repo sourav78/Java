@@ -31,4 +31,9 @@ public class QuestionController {
     public ResponseEntity<ResponseHandler<List<Question>>> getQuestionsBySubject(@PathVariable String subject){
         return questionService.getQuestionsBySubject(subject);
     }
+
+    @GetMapping("/test/{subject}")
+    public ResponseEntity<ResponseHandler<List<Question>>> getQuestionsForTest(@PathVariable String subject){
+        return questionService.getQuestionsBy5Subject(subject);
+    }
 }
