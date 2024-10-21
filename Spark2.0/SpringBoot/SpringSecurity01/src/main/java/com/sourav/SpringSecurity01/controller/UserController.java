@@ -24,4 +24,9 @@ public class UserController {
         return userService.saveUser(user);
     }
 
+    @GetMapping("/total-user")
+    public String numberOfUsers(){
+        return "Total users is 90";
+    }
+
 }

@@ -28,7 +28,10 @@ public class SecurityConfiguration {
         security.csrf(token -> token.disable());
 
         //Here we specify all the request should be authenticated
-        security.authorizeHttpRequests(requestMatcherRegistry -> requestMatcherRegistry.anyRequest().authenticated());
+        security.authorizeHttpRequests(requestMatcherRegistry -> requestMatcherRegistry
+                .requestMatchers("/u/total-user").permitAll() //Unauthenticated URLs
+                .anyRequest().authenticated()
+        );
 
         // Here we enable form-based authentication. This configures Spring Security to use a default form login page
         //security.formLogin(Customizer.withDefaults());

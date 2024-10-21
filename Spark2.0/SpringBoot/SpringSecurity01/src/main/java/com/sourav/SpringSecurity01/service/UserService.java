@@ -19,7 +19,6 @@ public class UserService {
     public List<Users> getAllUsers(){
 
         try{
-
             return userRepo.findAll();
         }catch (Exception e){
             e.printStackTrace();
