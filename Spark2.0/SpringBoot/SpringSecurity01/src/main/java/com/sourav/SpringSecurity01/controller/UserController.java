@@ -19,9 +19,14 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/user")
+    @PostMapping("/register")
     public String createUser(@RequestBody Users user){
         return userService.saveUser(user);
+    }
+
+    @PostMapping("/login")
+    public String loginUser(@RequestBody Users user){
+        return userService.verifyUser(user);
     }
 
     @GetMapping("/total-user")
