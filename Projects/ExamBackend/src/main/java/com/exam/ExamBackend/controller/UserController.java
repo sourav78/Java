@@ -3,8 +3,11 @@ package com.exam.ExamBackend.controller;
 import com.exam.ExamBackend.entity.Roles;
 import com.exam.ExamBackend.entity.UserRoles;
 import com.exam.ExamBackend.entity.Users;
+import com.exam.ExamBackend.response.ResponseHandler;
 import com.exam.ExamBackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +25,7 @@ public class UserController {
 
     //Create user controller
     @PostMapping("")
-    public Users createUser(@RequestBody Users user) throws Exception {
+    public ResponseEntity<Object> createUser(@RequestBody Users user) throws Exception {
 
         //Assign role to user
         Roles roles = new Roles();
@@ -39,7 +42,15 @@ public class UserController {
         userRolesSet.add(userRoles);
 
         //Save the user
-        return userService.createUser(user, userRolesSet);
+        Users savedUser = userService.createUser(user, userRolesSet);
+
+        //Handle the response
+        return ResponseHandler.responseBuilder(
+                "User created Successfully",
+                HttpStatus.OK,
+                savedUser
+        );
     }
+
 
 }
