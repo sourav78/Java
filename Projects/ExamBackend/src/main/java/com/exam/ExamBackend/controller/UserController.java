@@ -5,15 +5,14 @@ import com.exam.ExamBackend.entity.UserRoles;
 import com.exam.ExamBackend.entity.Users;
 import com.exam.ExamBackend.response.ResponseHandler;
 import com.exam.ExamBackend.service.UserService;
+import com.exam.ExamBackend.entity.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -52,5 +51,22 @@ public class UserController {
         );
     }
 
+    //Get all Users
+    @GetMapping("")
+    public ResponseEntity<Object> getAllUser(){
+        List<UserDto> usersList = userService.getAllUsers();
 
+        //Handle the response
+        return ResponseHandler.responseBuilder(
+                "User fetched successfully.",
+                HttpStatus.OK,
+                usersList
+        );
+    }
+
+    //Get user by id
+    @GetMapping("/{userId}")
+    public ResponseEntity<Object> getUserById(@PathVariable long userId){
+        return null;
+    }
 }
