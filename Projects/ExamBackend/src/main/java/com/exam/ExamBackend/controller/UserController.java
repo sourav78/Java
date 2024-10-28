@@ -3,6 +3,7 @@ package com.exam.ExamBackend.controller;
 import com.exam.ExamBackend.entity.Roles;
 import com.exam.ExamBackend.entity.UserRoles;
 import com.exam.ExamBackend.entity.Users;
+import com.exam.ExamBackend.exception.UserFieldException;
 import com.exam.ExamBackend.response.ResponseHandler;
 import com.exam.ExamBackend.service.UserService;
 import com.exam.ExamBackend.entity.UserDto;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @RestController
@@ -66,7 +68,18 @@ public class UserController {
 
     //Get user by id
     @GetMapping("/{userId}")
-    public ResponseEntity<Object> getUserById(@PathVariable long userId){
-        return null;
+    public ResponseEntity<Object> getUserById(@PathVariable Long userId){
+
+        if(userId == null){
+            throw new UserFieldException("User ID is required.");
+        }
+
+        Optional<Users> user = userService.getUserById(userId);
+
+        return ResponseHandler.responseBuilder(
+                "Fetch the user successfully",
+                HttpStatus.OK,
+                user
+        );
     }
 }

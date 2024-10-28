@@ -3,7 +3,9 @@ package com.exam.ExamBackend.service.impl;
 import com.exam.ExamBackend.entity.UserDto;
 import com.exam.ExamBackend.entity.UserRoles;
 import com.exam.ExamBackend.entity.Users;
+import com.exam.ExamBackend.exception.ResourceNotFoundException;
 import com.exam.ExamBackend.exception.UserAlreadyExistException;
+import com.exam.ExamBackend.exception.UserFieldException;
 import com.exam.ExamBackend.repo.RoleRepo;
 import com.exam.ExamBackend.repo.UserRepo;
 import com.exam.ExamBackend.service.UserService;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -24,7 +27,7 @@ public class UserServiceImplements implements UserService {
     private RoleRepo roleRepo;
 
     @Override
-    public Users createUser(Users user, Set<UserRoles> userRoles) throws Exception {
+    public Users createUser(Users user, Set<UserRoles> userRoles) {
 
         //Find the user by username
         Users exitingUser = userRepo.findByUsername(user.getUsername());
@@ -52,6 +55,22 @@ public class UserServiceImplements implements UserService {
     @Override
     public List<UserDto> getAllUsers() {
         return userRepo.findAllWithRoles().stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<Users> getUserById(Long id) {
+
+        if(id == null){
+            throw new UserFieldException("User ID is required.");
+        }
+
+        Optional<Users> user = userRepo.findById(id);
+
+        if(user.isEmpty()){
+            throw new ResourceNotFoundException("User not found");
+        }
+
+        return user;
     }
 
     private UserDto convertToDto(Users user) {

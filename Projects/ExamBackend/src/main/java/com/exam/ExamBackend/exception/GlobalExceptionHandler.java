@@ -30,6 +30,17 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(examPortalException, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(value = {ResourceNotFoundException.class})
+    public ResponseEntity<Object> handleResourceNotFoundException(ResourceNotFoundException resourceNotFoundException){
+
+        ExamPortalException examPortalException = new ExamPortalException(
+                resourceNotFoundException.getMessage(),
+                HttpStatus.NOT_FOUND
+        );
+
+        return new ResponseEntity<>(examPortalException, HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(value = {Exception.class})
     public ResponseEntity<Object> handleDefaultException(Exception exception){
 

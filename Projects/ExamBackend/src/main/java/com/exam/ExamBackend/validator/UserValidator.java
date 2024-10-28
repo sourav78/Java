@@ -6,7 +6,7 @@ import com.exam.ExamBackend.exception.UserFieldException;
 public class UserValidator {
 
     //This method is used to validate the required field of new users
-    public static void validateNewUser(Users users) throws Exception {
+    public static void validateNewUser(Users users) {
 
         if (users.getUsername().isEmpty()){
             throw new UserFieldException("Username is required");
