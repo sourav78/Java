@@ -11,11 +11,11 @@ public class UserRoles {
     private long userRoleId;
 
     //user
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Users user;
 
     //role
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Roles role;
 
     public UserRoles() {

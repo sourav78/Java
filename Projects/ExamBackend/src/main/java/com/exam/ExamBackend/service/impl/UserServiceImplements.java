@@ -64,13 +64,35 @@ public class UserServiceImplements implements UserService {
             throw new UserFieldException("User ID is required.");
         }
 
+        //Get the user from database
         Optional<Users> user = userRepo.findById(id);
 
+        //Check the user is empty or not if empty throw exception
         if(user.isEmpty()){
             throw new ResourceNotFoundException("User not found");
         }
 
         return user;
+    }
+
+    @Override
+    public boolean deleteUserById(Long id) {
+        if(id == null){
+            throw new UserFieldException("User ID is required.");
+        }
+
+        //Get the user from database
+        Optional<Users> user = userRepo.findById(id);
+
+        //Check the user is empty or not if empty throw exception
+        if(user.isEmpty()){
+            throw new ResourceNotFoundException("User not found");
+        }
+
+        //Delete the by id
+        userRepo.deleteById(id);
+
+        return true;
     }
 
     private UserDto convertToDto(Users user) {

@@ -15,4 +15,6 @@ public interface UserService {
     public List<UserDto> getAllUsers();
 
     public Optional<Users> getUserById(Long id);
+
+    public boolean deleteUserById(Long id);
 }

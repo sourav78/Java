@@ -70,6 +70,7 @@ public class UserController {
     @GetMapping("/{userId}")
     public ResponseEntity<Object> getUserById(@PathVariable Long userId){
 
+        //Check if user id is null
         if(userId == null){
             throw new UserFieldException("User ID is required.");
         }
@@ -80,6 +81,22 @@ public class UserController {
                 "Fetch the user successfully",
                 HttpStatus.OK,
                 user
+        );
+    }
+
+    //Delete user by id
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<Object> deleteUserById(@PathVariable Long userId){
+        if(userId == null){
+            throw new UserFieldException("User ID is required.");
+        }
+
+        userService.deleteUserById(userId);
+
+        return ResponseHandler.responseBuilder(
+                "User deleted successfully",
+                HttpStatus.OK,
+                null
         );
     }
 }
