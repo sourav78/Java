@@ -13,7 +13,10 @@ public class GreetController {
 
     @GetMapping("/greet")
     public String wish(){
-        return "Hello Microservice";
+
+        String PORT = environment.getProperty("server.port");
+
+        return "From Greet : PORT -> "+PORT;
     }
 
 }
