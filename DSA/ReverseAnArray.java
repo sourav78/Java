@@ -52,8 +52,8 @@ public class ReverseAnArray {
         ReverseAnArrayUsingRecursion(0, newarr, newarr.length);
         System.out.println(Arrays.toString(newarr));
 
-        ReverseAnArrayUsingRecursion2Pointer(0, newarr.length-1, newarr);
-        System.out.println(Arrays.toString(newarr));
+//        ReverseAnArrayUsingRecursion2Pointer(0, newarr.length-1, newarr);
+//        System.out.println(Arrays.toString(newarr));
 
         // System.out.println(Arrays.toString(reservseArray(newarr)));
     }
